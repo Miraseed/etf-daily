@@ -3,70 +3,120 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ETF 份额 & 成交日报 · 10-23</title>
+<title>ETF 份额与成交日报 · 10-23</title>
 <style>
-__CSS__
+  :root{
+    --ink:#111827; --sub:#4b5563; --muted:#6b7280; --line:#e9edf3; --bg:#f5f6f8;
+    --up:#d92b2f; --down:#0f9d58; --navy:#17365d; --accent:#2f6db5;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);line-height:1.55;font-size:14px;
+       font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC","Microsoft YaHei",sans-serif;
+       -webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%}
+  .wrap{max-width:720px;margin:0 auto;padding:14px 14px 30px}
+  header{padding:4px 2px 0}
+  header h1{font-size:20px;letter-spacing:.3px;font-weight:700}
+  .meta{font-size:11.5px;color:var(--muted);margin-top:3px}
+  .lead{background:#fff;border:1px solid var(--line);border-left:3px solid var(--accent);
+        border-radius:8px;padding:10px 12px;font-size:13px;color:#334155;margin-top:11px}
+  .lead b{color:var(--navy)}
+  .up{color:var(--up)} .down{color:var(--down)}
+
+  .hero{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:9px}
+  .hero .k{background:#fff;border:1px solid var(--line);border-radius:9px;padding:9px 11px;min-width:0}
+  .hero .t{font-size:10.5px;color:var(--muted)}
+  .hero .v{font-size:20px;font-weight:800;margin-top:2px;letter-spacing:-.3px;
+           font-variant-numeric:tabular-nums;white-space:nowrap}
+  .hero .u{font-size:11.5px;font-weight:600;letter-spacing:0;margin-left:1px}
+  .hero .s{font-size:10.5px;color:var(--sub);margin-top:1px;white-space:nowrap;
+           overflow:hidden;text-overflow:ellipsis}
+
+  section{margin-top:20px}
+  h2{font-size:14px;font-weight:700;color:#111;display:flex;align-items:baseline;gap:6px}
+  h2 .no{color:var(--accent);font-size:11.5px;font-weight:700;letter-spacing:.4px}
+  h2 .tail{margin-left:auto;font-size:10.5px;color:var(--muted);font-weight:400}
+  .card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 11px;margin-top:7px}
+
+  .brow{display:grid;grid-template-columns:78px 1fr 54px;align-items:center;gap:8px;
+        padding:7px 0;border-bottom:1px solid #f6f8fb}
+  .brow:last-child{border-bottom:0;padding-bottom:2px}
+  .blab{min-width:0;font-size:12px;font-weight:600;line-height:1.2;
+        white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .blab .c{display:block;font-size:9.5px;color:var(--muted);font-weight:400;margin-top:1px}
+  .btrack{height:18px;background:#f1f4f8;border-radius:3px;overflow:hidden}
+  .bfill{height:100%;border-radius:3px}
+  .bpct{text-align:right;font-size:12.5px;font-weight:700;font-variant-numeric:tabular-nums}
+  @media(min-width:560px){
+    .brow{grid-template-columns:104px 1fr 62px;gap:10px}
+    .blab{font-size:12.5px}
+    .btrack{height:20px}
+    .bpct{font-size:13px}
+  }
+
+  .heat{width:100%;border-collapse:separate;border-spacing:2px;table-layout:fixed}
+  .heat th{font-size:10px;color:var(--muted);font-weight:600;padding:0 0 4px;text-align:center}
+  .heat th:first-child{text-align:left;padding-left:2px;width:76px}
+  .heat td{width:auto;text-align:center;padding:6px 1px;border-radius:4px;
+           font-size:11.5px;font-weight:700;font-variant-numeric:tabular-nums}
+  .heat td.nm{width:76px;text-align:left;background:transparent;font-weight:600;
+              white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .heat td.nm span{display:block;font-size:9px;color:var(--muted);font-weight:400}
+
+  .legend{display:flex;flex-wrap:wrap;gap:4px 10px;margin-bottom:4px}
+  .legend span{display:inline-flex;align-items:center;font-size:10.5px;color:var(--sub)}
+  .legend i{width:8px;height:8px;border-radius:2px;margin-right:3px;display:inline-block}
+
+  .main-img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;margin-top:7px}
+  .foot{margin-top:22px;padding-top:10px;border-top:1px solid var(--line);
+        font-size:10.5px;color:var(--muted);line-height:1.75}
+  .foot a{color:var(--accent);text-decoration:none}
 </style>
 </head>
 <body>
 <div class="wrap">
 
 <header>
-  <h1>ETF 份额 &amp; 成交日报</h1>
-  <div class="sub">数据日期 10-23，对比 10-22 ｜ 来源：上交所/深交所 ETF 份额 + 新浪行情 ｜ 红涨绿跌 ｜ 60 日窗口 07-23 → 10-23</div>
+  <h1>ETF 份额与成交日报</h1>
+  <div class="meta">10-23 收盘 · 对比 10-22 · 6 只宽基 ETF · 红涨绿跌</div>
 </header>
 
-<div class="lead"><b>核心结论：</b>当日 6 只宽基全部净申购（合计 +734.8 亿份）；成交放量 5 只 / 缩量 1 只。60 日累计净申购最高 <b class='up'>科创50ETF +541.9 亿</b>、最低 <b class='up'>中证1000ETF +47.3 亿</b>（窗口 07-23 → 10-23）。</div>
+<div class="lead"><b>当日</b>6/6 只份额净申购、5 只放量；<b>60 日</b>累计 <b>科创50ETF</b> 最强、<b>中证1000ETF</b> 最弱。</div>
 
-<div class="spot">
-<div class='k'><div class='t'>份额涨幅最大</div><div class='v'>500ETF 510500</div><div class='p up'>+13.23%</div></div><div class='k'><div class='t'>份额涨幅最小</div><div class='v'>50ETF 510050</div><div class='p up'>+0.08%</div></div><div class='k'><div class='t'>成交放大最显著</div><div class='v'>500ETF 510500</div><div class='p up'>+47.22%</div></div><div class='k'><div class='t'>成交缩量最显著</div><div class='v'>50ETF 510050</div><div class='p down'>-46.54%</div></div>
-</div>
+<div class="hero"><div class='k'><div class='t'>当日合计净申购</div><div class='v up'>+97.8<span class='u'> 亿份</span></div><div class='s'>6/6 只净申购 · 5 只放量</div></div><div class='k'><div class='t'>60 日累计净申购</div><div class='v up'>+542<span class='u'> 亿元</span></div><div class='s'>科创50ETF 居首</div></div></div>
 
-<h2><span class="no">①</span>当日份额变动（红涨绿跌）</h2>
-<div class="card">
-  <div class="bars" id="shareBars"></div>
-  <p class="hint">横轴：较前一交易日变动%。柱下：当日变动量与总份额。</p>
-</div>
+<section>
+  <h2><span class="no">01</span>当日份额变动<span class="tail">亿份</span></h2>
+  <div class="card" id="shareBars"></div>
+</section>
 
-<h2><span class="no">②</span>当日成交量变动（红涨绿跌）</h2>
-<div class="card">
-  <div class="bars" id="volBars"></div>
-  <p class="hint">横轴：较前一交易日均量变动%。柱下：当日成交量。</p>
-</div>
+<section>
+  <h2><span class="no">02</span>当日成交量<span class="tail">亿份</span></h2>
+  <div class="card" id="volBars"></div>
+</section>
 
-<h2><span class="no">③</span>中长期趋势（日 / 周 / 月 / 季，份额期末口径）</h2>
-<div class="trend-grid">
-<div class='trend-cell'><div class='name'>300ETF</div><div class='code'>510300</div><div class='trend-row'><span class='lbl'>日</span><span class='v up'>+7.68%</span></div><div class='trend-row'><span class='lbl'>周</span><span class='v up'>+23.43%</span></div><div class='trend-row'><span class='lbl'>月</span><span class='v up'>+48.70%</span></div><div class='trend-row'><span class='lbl'>季</span><span class='v up'>+46.68%</span></div></div><div class='trend-cell'><div class='name'>50ETF</div><div class='code'>510050</div><div class='trend-row'><span class='lbl'>日</span><span class='v up'>+0.08%</span></div><div class='trend-row'><span class='lbl'>周</span><span class='v up'>+45.73%</span></div><div class='trend-row'><span class='lbl'>月</span><span class='v up'>+66.79%</span></div><div class='trend-row'><span class='lbl'>季</span><span class='v up'>+65.94%</span></div></div><div class='trend-cell'><div class='name'>500ETF</div><div class='code'>510500</div><div class='trend-row'><span class='lbl'>日</span><span class='v up'>+13.23%</span></div><div class='trend-row'><span class='lbl'>周</span><span class='v up'>+26.45%</span></div><div class='trend-row'><span class='lbl'>月</span><span class='v up'>+28.32%</span></div><div class='trend-row'><span class='lbl'>季</span><span class='v up'>+27.34%</span></div></div><div class='trend-cell'><div class='name'>科创50ETF</div><div class='code'>588000</div><div class='trend-row'><span class='lbl'>日</span><span class='v up'>+3.47%</span></div><div class='trend-row'><span class='lbl'>周</span><span class='v up'>+17.23%</span></div><div class='trend-row'><span class='lbl'>月</span><span class='v up'>+48.03%</span></div><div class='trend-row'><span class='lbl'>季</span><span class='v up'>+78.33%</span></div></div><div class='trend-cell'><div class='name'>中证1000ETF</div><div class='code'>512100</div><div class='trend-row'><span class='lbl'>日</span><span class='v up'>+12.35%</span></div><div class='trend-row'><span class='lbl'>周</span><span class='v up'>+34.60%</span></div><div class='trend-row'><span class='lbl'>月</span><span class='v up'>+70.19%</span></div><div class='trend-row'><span class='lbl'>季</span><span class='v up'>+26.11%</span></div></div><div class='trend-cell'><div class='name'>创业板ETF</div><div class='code'>159915</div><div class='trend-row'><span class='lbl'>日</span><span class='v up'>+7.83%</span></div><div class='trend-row'><span class='lbl'>周</span><span class='v up'>+30.15%</span></div><div class='trend-row'><span class='lbl'>月</span><span class='v up'>+68.83%</span></div><div class='trend-row'><span class='lbl'>季</span><span class='v up'>+103.12%</span></div></div>
-</div>
-
-<h2><span class="no">④</span>60 日累计净申购（亿元 · 交互图）</h2>
-<div class="card">
-  <div class="legend" id="curveLegend"></div>
-  <div id="curveBox" style="position:relative"></div>
-  <div id="curveTip" style="display:none;position:absolute;z-index:5;background:#fff;border:1px solid var(--grid);
-       border-radius:8px;box-shadow:0 4px 14px rgba(20,40,80,.12);padding:9px 11px;font-size:12px;
-       min-width:150px;pointer-events:none;line-height:1.7"></div>
-  <p class="hint">净申购 ≈ Σ 份额变动 × 当日收盘价（近似一级市场净申赎）。鼠标或手指移到图上可查看任意日期各 ETF 累计值。</p>
-</div>
-
-<h2><span class="no">⑤</span>完整研究图（趋势矩阵 + 累计净申购 + 四象限）</h2>
-<img class="main-img" src="images/etf_daily_latest.png" alt="ETF 日报大图">
-
-<h2><span class="no">⑥</span>观察与口径说明</h2>
-<div class="card">
-  <ul class="obs"><li><span>▪</span><b>资金流分化约 495 亿元。</b>60 日累计净申购最高 科创50ETF（+541.9 亿），最低 中证1000ETF（+47.3 亿），资金在宽基 ETF 之间迁移明显。</li><li><span>▪</span><b>量价结构：</b>越跌越买 6 只（60 日份额变动 × 60 日价格变动）。其中越跌越买：300ETF、50ETF、500ETF、科创50ETF、中证1000ETF、创业板ETF。</li><li><span>▪</span><b>口径：</b>份额为交易所披露总份额，日/周/月/季取期末口径（对比 1/5/20/60 个交易日前）；成交量按对应区间均量环比；累计净申购 ≈ Σ Δ份额 × 当日收盘价，未剔除分红拆分影响。</li></ul>
-  <div style="margin-top:10px;padding-top:10px;border-top:1px dashed var(--grid)">
-    <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:8px">份额-价格四象限（60 日）</div>
-    <span class='quad-tag quad-buy-down'>越跌越买·300ETF</span> <span class='quad-tag quad-buy-down'>越跌越买·50ETF</span> <span class='quad-tag quad-buy-down'>越跌越买·500ETF</span> <span class='quad-tag quad-buy-down'>越跌越买·科创50ETF</span> <span class='quad-tag quad-buy-down'>越跌越买·中证1000ETF</span> <span class='quad-tag quad-buy-down'>越跌越买·创业板ETF</span>
+<section>
+  <h2><span class="no">03</span>份额趋势<span class="tail">对比 1 / 5 / 20 / 60 交易日</span></h2>
+  <div class="card">
+    <table class="heat">
+      <thead><tr><th>标的</th><th>日</th><th>周</th><th>月</th><th>季</th></tr></thead>
+      <tbody><tr><td class='nm'>300ETF<span>510300</span></td><td style='background:rgba(224,52,58,.42);color:#7d1216'>+7.68%</td><td style='background:rgba(224,52,58,.42);color:#7d1216'>+23.4%</td><td style='background:#b3262c;color:#fff'>+48.7%</td><td style='background:rgba(224,52,58,.42);color:#7d1216'>+46.7%</td></tr><tr><td class='nm'>50ETF<span>510050</span></td><td style='background:rgba(224,52,58,.13);color:#a01c22'>+0.08%</td><td style='background:#b3262c;color:#fff'>+45.7%</td><td style='background:#b3262c;color:#fff'>+66.8%</td><td style='background:rgba(224,52,58,.42);color:#7d1216'>+65.9%</td></tr><tr><td class='nm'>500ETF<span>510500</span></td><td style='background:#b3262c;color:#fff'>+13.23%</td><td style='background:rgba(224,52,58,.42);color:#7d1216'>+26.4%</td><td style='background:rgba(224,52,58,.42);color:#7d1216'>+28.3%</td><td style='background:rgba(224,52,58,.13);color:#a01c22'>+27.3%</td></tr><tr><td class='nm'>科创50ETF<span>588000</span></td><td style='background:rgba(224,52,58,.13);color:#a01c22'>+3.47%</td><td style='background:rgba(224,52,58,.42);color:#7d1216'>+17.2%</td><td style='background:#b3262c;color:#fff'>+48.0%</td><td style='background:#b3262c;color:#fff'>+78.3%</td></tr><tr><td class='nm'>中证1000ETF<span>512100</span></td><td style='background:#b3262c;color:#fff'>+12.35%</td><td style='background:#b3262c;color:#fff'>+34.6%</td><td style='background:#b3262c;color:#fff'>+70.2%</td><td style='background:rgba(224,52,58,.13);color:#a01c22'>+26.1%</td></tr><tr><td class='nm'>创业板ETF<span>159915</span></td><td style='background:rgba(224,52,58,.42);color:#7d1216'>+7.83%</td><td style='background:rgba(224,52,58,.42);color:#7d1216'>+30.2%</td><td style='background:#b3262c;color:#fff'>+68.8%</td><td style='background:#b3262c;color:#fff'>+103.1%</td></tr></tbody>
+    </table>
   </div>
-  <p class="hint">份额：交易所披露总份额（沪市 T 晚、深市 T 晚）；日/周/月/季取期末口径（对比 1/5/20/60 个交易日前）；成交量按对应区间均量环比。自动生成于 2026-10-25 11:01:04。数据仅供研究参考，不构成投资建议。</p>
-</div>
+</section>
 
-<div class="foot">
-  <span>ETF 份额 &amp; 成交日报 · 每交易日 21:05 自动推送</span>
-  <span><a href="https://miraseed.github.io/etf-daily/">https://miraseed.github.io/etf-daily/</a></span>
-</div>
-</div>
+<section>
+  <h2><span class="no">04</span>60 日累计净申购<span class="tail">亿元</span></h2>
+  <div class="card">
+    <div class="legend" id="curveLegend"></div>
+    <div id="curveBox" style="position:relative"></div>
+    <div id="curveTip" style="display:none;position:absolute;z-index:5;background:#fff;border:1px solid var(--line);
+         border-radius:7px;box-shadow:0 4px 14px rgba(20,40,80,.13);padding:8px 10px;font-size:11.5px;
+         min-width:146px;pointer-events:none;line-height:1.75"></div>
+  </div>
+</section>
+
+
+
 <div class="live-wrap">
   <div class="live-head">
     <span class="live-dot" id="live-dot"></span>
@@ -124,8 +174,7 @@ __CSS__
     s.charset = "GBK";
     s.src = "https://qt.gtimg.cn/q=" + ETFS.map(function(e){return e.code}).join(",") +
             "&r=" + Date.now();
-    var done = false;
-    s.onload = function(){ done = true; };
+    document.head.appendChild(s);
     setTimeout(function(){
       var ok = 0;
       ETFS.forEach(function(e){
@@ -157,117 +206,113 @@ __CSS__
   setInterval(refresh, 5000);
 })();
 </script>
-<script>
-var DATA = [{"code": "510300", "short": "300ETF", "color": "#4C78A8", "share_yi": 352.43, "chg_pct": 7.68, "chg_amt_yi": 112.16, "vol_yi": 37.56, "vol_chg_pct": 6.0, "cum_sub": 465.7, "cum_series": [16.63, 29.03, 61.1, 89.64, 114.34, 113.55, 140.74, 116.21, 88.25, 77.32, 49.91, 37.19, 35.44, 4.29, -18.86, -27.24, -49.19, -65.95, -11.75, -17.11, -29.37, -14.21, -2.95, -12.24, -25.12, -38.39, -28.6, -52.21, -54.21, -46.64, -34.8, -22.2, -30.53, -43.67, -43.42, -33.9, -33.7, -27.39, -15.92, -20.16, -22.06, -19.57, -18.45, -6.18, -10.73, 1.35, 0.75, -1.24, -3.69, 10.72, 16.72, 32.67, 23.79, 57.5, 187.46, 214.71, 223.37, 256.78, 360.72, 465.7]}, {"code": "510050", "short": "50ETF", "color": "#1F3B73", "share_yi": 129.93, "chg_pct": 0.08, "chg_amt_yi": 51.63, "vol_yi": 12.81, "vol_chg_pct": -46.5, "cum_sub": 145.6, "cum_series": [-11.89, -6.42, -9.08, -14.85, -20.76, -18.66, -4.8, -6.06, -20.84, -22.04, -28.58, -32.15, -20.96, -25.29, -26.43, -22.95, -27.9, -34.48, -27.38, -16.87, -15.87, -10.05, -6.7, -18.36, -28.59, -31.13, -32.12, -40.06, -41.91, -39.24, -31.64, -25.37, -30.53, -30.55, -34.44, -25.1, -24.64, -20.41, -8.45, -2.57, 2.49, -5.64, -12.07, -14.96, -21.24, -15.51, -18.88, -27.97, -28.08, -22.61, -22.69, -17.47, -16.97, -8.72, 28.91, 49.23, 93.56, 100.11, 145.29, 145.57]}, {"code": "510500", "short": "500ETF", "color": "#E49444", "share_yi": 73.01, "chg_pct": 13.23, "chg_amt_yi": 15.68, "vol_yi": 13.2, "vol_chg_pct": 47.2, "cum_sub": 103.2, "cum_series": [-4.01, 31.22, -4.78, 39.01, 20.9, 35.9, 45.07, 40.6, 29.04, -0.16, -12.91, -29.5, -33.23, -36.26, -46.51, -51.4, -47.34, -63.15, -46.29, -53.75, -55.23, -64.86, -45.57, -45.79, -27.17, -32.93, -27.48, -44.29, -54.05, -54.36, -42.09, -17.84, -20.21, -29.61, -24.75, -40.79, -35.99, -19.72, -4.8, -5.81, -3.27, -12.37, -3.61, 0.01, -21.22, -18.87, -11.78, -11.96, -13.16, -4.04, -7.06, -5.04, -14.48, -8.5, -0.71, 40.76, 22.16, 21.41, 44.7, 103.21]}, {"code": "588000", "short": "科创50ETF", "color": "#2E8B57", "share_yi": 822.93, "chg_pct": 3.47, "chg_amt_yi": 361.47, "vol_yi": 110.74, "vol_chg_pct": 12.5, "cum_sub": 541.9, "cum_series": [-11.03, -0.82, 36.29, 77.15, 134.33, 91.72, 131.08, 114.35, 77.0, 68.39, 49.29, 55.24, 51.44, 39.68, 32.61, 42.19, 7.64, 9.68, 53.1, 57.71, 55.93, 77.39, 89.88, 76.61, 59.5, 64.61, 68.23, 78.78, 83.44, 97.7, 128.37, 118.81, 124.25, 130.72, 139.23, 160.77, 169.14, 153.61, 149.15, 152.71, 142.35, 147.23, 131.36, 129.88, 142.94, 164.67, 167.66, 194.85, 230.27, 267.81, 271.65, 282.63, 297.15, 363.5, 372.43, 392.03, 422.17, 437.01, 502.65, 541.9]}, {"code": "512100", "short": "中证1000ETF", "color": "#7B5AA6", "share_yi": 108.77, "chg_pct": 12.35, "chg_amt_yi": 22.52, "vol_yi": 26.0, "vol_chg_pct": 38.4, "cum_sub": 47.3, "cum_series": [-6.91, 23.33, 13.02, 70.69, 78.42, 80.42, 90.17, 105.18, 93.7, 53.58, 3.8, -25.23, -32.41, -51.35, -61.1, -68.09, -67.57, -80.55, -48.12, -65.15, -71.8, -75.88, -62.34, -70.24, -64.9, -68.53, -72.62, -82.3, -87.6, -86.18, -72.6, -72.04, -76.27, -81.66, -82.28, -87.04, -93.17, -94.01, -75.77, -77.55, -77.67, -80.44, -72.89, -75.03, -75.58, -58.13, -60.1, -60.81, -53.14, -33.71, -28.51, -24.41, -36.66, -32.06, -28.31, -8.16, -21.59, -18.19, 14.52, 47.31]}, {"code": "159915", "short": "创业板ETF", "color": "#B05A4A", "share_yi": 337.57, "chg_pct": 7.83, "chg_amt_yi": 171.38, "vol_yi": 76.05, "vol_chg_pct": 44.1, "cum_sub": 490.1, "cum_series": [1.19, 12.75, 79.88, 116.42, 180.12, 126.27, 125.0, 91.45, 76.28, 68.85, 53.46, 61.83, 47.32, 40.58, 29.01, 21.72, 8.73, 11.59, 54.23, 45.45, 30.68, 50.42, 73.94, 64.26, 66.67, 65.68, 71.0, 75.37, 89.91, 101.49, 110.12, 82.88, 85.34, 85.07, 88.16, 95.98, 99.15, 116.37, 115.64, 106.08, 101.47, 93.64, 93.54, 94.25, 104.69, 133.15, 128.91, 125.1, 146.44, 168.31, 174.4, 196.2, 211.75, 267.11, 280.11, 302.21, 318.94, 369.42, 423.88, 490.14]}];
+
+<div class="foot">份额为交易所披露总份额；日 / 周 / 月 / 季为期末口径；成交量取新浪日线；累计净申购 = Σ 份额变动 × 收盘价，未剔除分红。仅供研究参考。<br>生成于 2026-10-25 12:54:10 · 每交易日 21:05 自动推送 · <a href='https://miraseed.github.io/etf-daily/'>https://miraseed.github.io/etf-daily/</a></div>
+</div><script>
+var DATA = [{"code": "510300", "short": "300ETF", "color": "#4C78A8", "share_yi": 352.4, "chg_pct": 7.68, "vol_yi": 37.6, "vol_chg_pct": 6.03, "cum_series": [16.63, 29.03, 61.1, 89.64, 114.34, 113.55, 140.74, 116.21, 88.25, 77.32, 49.91, 37.19, 35.44, 4.29, -18.86, -27.24, -49.19, -65.95, -11.75, -17.11, -29.37, -14.21, -2.95, -12.24, -25.12, -38.39, -28.6, -52.21, -54.21, -46.64, -34.8, -22.2, -30.53, -43.67, -43.42, -33.9, -33.7, -27.39, -15.92, -20.16, -22.06, -19.57, -18.45, -6.18, -10.73, 1.35, 0.75, -1.24, -3.69, 10.72, 16.72, 32.67, 23.79, 57.5, 187.46, 214.71, 223.37, 256.78, 360.72, 465.7]}, {"code": "510050", "short": "50ETF", "color": "#1F3B73", "share_yi": 129.9, "chg_pct": 0.08, "vol_yi": 12.8, "vol_chg_pct": -46.54, "cum_series": [-11.89, -6.42, -9.08, -14.85, -20.76, -18.66, -4.8, -6.06, -20.84, -22.04, -28.58, -32.15, -20.96, -25.29, -26.43, -22.95, -27.9, -34.48, -27.38, -16.87, -15.87, -10.05, -6.7, -18.36, -28.59, -31.13, -32.12, -40.06, -41.91, -39.24, -31.64, -25.37, -30.53, -30.55, -34.44, -25.1, -24.64, -20.41, -8.45, -2.57, 2.49, -5.64, -12.07, -14.96, -21.24, -15.51, -18.88, -27.97, -28.08, -22.61, -22.69, -17.47, -16.97, -8.72, 28.91, 49.23, 93.56, 100.11, 145.29, 145.57]}, {"code": "510500", "short": "500ETF", "color": "#E49444", "share_yi": 73.0, "chg_pct": 13.23, "vol_yi": 13.2, "vol_chg_pct": 47.22, "cum_series": [-4.01, 31.22, -4.78, 39.01, 20.9, 35.9, 45.07, 40.6, 29.04, -0.16, -12.91, -29.5, -33.23, -36.26, -46.51, -51.4, -47.34, -63.15, -46.29, -53.75, -55.23, -64.86, -45.57, -45.79, -27.17, -32.93, -27.48, -44.29, -54.05, -54.36, -42.09, -17.84, -20.21, -29.61, -24.75, -40.79, -35.99, -19.72, -4.8, -5.81, -3.27, -12.37, -3.61, 0.01, -21.22, -18.87, -11.78, -11.96, -13.16, -4.04, -7.06, -5.04, -14.48, -8.5, -0.71, 40.76, 22.16, 21.41, 44.7, 103.21]}, {"code": "588000", "short": "科创50ETF", "color": "#2E8B57", "share_yi": 822.9, "chg_pct": 3.47, "vol_yi": 110.7, "vol_chg_pct": 12.54, "cum_series": [-11.03, -0.82, 36.29, 77.15, 134.33, 91.72, 131.08, 114.35, 77.0, 68.39, 49.29, 55.24, 51.44, 39.68, 32.61, 42.19, 7.64, 9.68, 53.1, 57.71, 55.93, 77.39, 89.88, 76.61, 59.5, 64.61, 68.23, 78.78, 83.44, 97.7, 128.37, 118.81, 124.25, 130.72, 139.23, 160.77, 169.14, 153.61, 149.15, 152.71, 142.35, 147.23, 131.36, 129.88, 142.94, 164.67, 167.66, 194.85, 230.27, 267.81, 271.65, 282.63, 297.15, 363.5, 372.43, 392.03, 422.17, 437.01, 502.65, 541.9]}, {"code": "512100", "short": "中证1000ETF", "color": "#7B5AA6", "share_yi": 108.8, "chg_pct": 12.35, "vol_yi": 26.0, "vol_chg_pct": 38.38, "cum_series": [-6.91, 23.33, 13.02, 70.69, 78.42, 80.42, 90.17, 105.18, 93.7, 53.58, 3.8, -25.23, -32.41, -51.35, -61.1, -68.09, -67.57, -80.55, -48.12, -65.15, -71.8, -75.88, -62.34, -70.24, -64.9, -68.53, -72.62, -82.3, -87.6, -86.18, -72.6, -72.04, -76.27, -81.66, -82.28, -87.04, -93.17, -94.01, -75.77, -77.55, -77.67, -80.44, -72.89, -75.03, -75.58, -58.13, -60.1, -60.81, -53.14, -33.71, -28.51, -24.41, -36.66, -32.06, -28.31, -8.16, -21.59, -18.19, 14.52, 47.31]}, {"code": "159915", "short": "创业板ETF", "color": "#B05A4A", "share_yi": 337.6, "chg_pct": 7.83, "vol_yi": 76.1, "vol_chg_pct": 44.08, "cum_series": [1.19, 12.75, 79.88, 116.42, 180.12, 126.27, 125.0, 91.45, 76.28, 68.85, 53.46, 61.83, 47.32, 40.58, 29.01, 21.72, 8.73, 11.59, 54.23, 45.45, 30.68, 50.42, 73.94, 64.26, 66.67, 65.68, 71.0, 75.37, 89.91, 101.49, 110.12, 82.88, 85.34, 85.07, 88.16, 95.98, 99.15, 116.37, 115.64, 106.08, 101.47, 93.64, 93.54, 94.25, 104.69, 133.15, 128.91, 125.1, 146.44, 168.31, 174.4, 196.2, 211.75, 267.11, 280.11, 302.21, 318.94, 369.42, 423.88, 490.14]}];
 var DATES = ["07-24", "07-27", "07-28", "07-29", "07-30", "07-31", "08-03", "08-04", "08-05", "08-06", "08-07", "08-10", "08-11", "08-12", "08-13", "08-14", "08-17", "08-18", "08-19", "08-20", "08-21", "08-24", "08-25", "08-26", "08-27", "08-28", "08-31", "09-01", "09-02", "09-03", "09-04", "09-07", "09-08", "09-09", "09-10", "09-11", "09-14", "09-15", "09-16", "09-17", "09-18", "09-21", "09-22", "09-23", "09-24", "09-28", "09-29", "09-30", "10-08", "10-09", "10-12", "10-13", "10-14", "10-15", "10-16", "10-19", "10-20", "10-21", "10-22", "10-23"];
 function signed(v, d){ if(d==null) d=2; return (v>0?"+":"")+v.toFixed(d); }
-
-function barChart(elId, rows, fmtVal, fmtSub){
+function renderBars(elId, key, totKey){
   var el = document.getElementById(elId);
-  var max = Math.max.apply(null, rows.map(function(r){return Math.abs(r.v);}).concat([0.001]));
-  rows.forEach(function(r){
-    var w = Math.abs(r.v) / max * 86;
-    var color = r.v > 0 ? "linear-gradient(90deg,#f0575d,#e0343a)"
-              : (r.v < 0 ? "linear-gradient(90deg,#22b26b,#12a05c)" : "#b3bcc9");
-    var d = document.createElement("div");
-    d.className = "brow";
-    d.innerHTML = '<div class="blab"><div class="n">'+r.short+'</div><div class="c">'+r.code+'</div></div>'
-      + '<div class="btrack"><div class="bfill" style="width:'+w+'%;background:'+color+'"><span>'+fmtVal(r)+'</span></div></div>';
-    el.appendChild(d);
-    var sub = document.createElement("div");
-    sub.className = "bsub";
-    sub.innerHTML = fmtSub(r);
-    el.appendChild(sub);
+  var arr = DATA.slice().sort(function(a,b){ return b[key]-a[key]; });
+  var max = Math.max.apply(null, arr.map(function(r){return Math.abs(r[key]);}).concat([0.01]));
+  arr.forEach(function(r){
+    var v = r[key], w = Math.max(2, Math.abs(v)/max*100);
+    var row = document.createElement("div");
+    row.className = "brow";
+    row.innerHTML = '<div class="blab">'+r.short+'<span class="c">'+r.code+' · '
+      +r[totKey].toFixed(1)+'</span></div>'
+      + '<div class="btrack"><div class="bfill" style="width:'+w.toFixed(1)+'%;background:'
+      + (v>=0 ? 'var(--up)' : 'var(--down)')+'"></div></div>'
+      + '<div class="bpct '+(v>=0?'up':'down')+'">'+signed(v)+'%</div>';
+    el.appendChild(row);
   });
 }
-
-barChart("shareBars",
-  DATA.map(function(r){var o={};for(var k in r)o[k]=r[k];o.v=r.chg_pct;return o;})
-      .sort(function(a,b){return b.chg_pct-a.chg_pct;}),
-  function(r){ return signed(r.chg_pct)+"%"; },
-  function(r){ return "当日 "+signed(r.chg_amt_yi)+" 亿份 ｜ 总份额 "+r.share_yi.toFixed(2)+" 亿份"; });
-
-barChart("volBars",
-  DATA.map(function(r){var o={};for(var k in r)o[k]=r[k];o.v=r.vol_chg_pct;return o;})
-      .sort(function(a,b){return b.vol_chg_pct-a.vol_chg_pct;}),
-  function(r){ return signed(r.vol_chg_pct,1)+"%"; },
-  function(r){ return "成交量 "+r.vol_yi.toFixed(2)+" 亿份"; });
+renderBars("shareBars", "chg_pct", "share_yi");
+renderBars("volBars", "vol_chg_pct", "vol_yi");
 
 (function(){
-  var G={W:820,H:380,padL:52,padR:16,padT:20,padB:34};
-  var box=document.getElementById("curveBox");
-  var tip=document.getElementById("curveTip");
+  var box=document.getElementById("curveBox"), tip=document.getElementById("curveTip");
   var n=DATES.length;
-  var all=[].concat.apply([], DATA.map(function(r){return r.cum_series;}));
-  var min=Math.min(0,Math.min.apply(null,all)), max=Math.max.apply(null,all);
-  if(max===min) max=min+1;
-  var W=G.W,H=G.H;
-  function X(q){return G.padL+(W-G.padL-G.padR)*q/(n-1);}
-  function Y(v){return G.padT+(H-G.padT-G.padB)*(max-v)/(max-min);}
-  var s='<svg id="curveSvg" viewBox="0 0 '+W+' '+H+'" style="width:100%;height:auto;touch-action:none">';
-  s+='<rect width="'+W+'" height="'+H+'" fill="#fff"/>';
-  for(var g=0;g<=4;g++){var v=min+(max-min)*g/4, yy=Y(v);
-    s+='<line x1="'+G.padL+'" y1="'+yy+'" x2="'+(W-G.padR)+'" y2="'+yy+'" stroke="#eef1f6"/>';
-    s+='<text x="'+(G.padL-8)+'" y="'+(yy+4)+'" text-anchor="end" font-size="11" fill="#8a97a8">'+Math.round(v)+'</text>';}
-  if(min<0&&max>0){s+='<line x1="'+G.padL+'" y1="'+Y(0)+'" x2="'+(W-G.padR)+'" y2="'+Y(0)+'" stroke="#c6cedb" stroke-width="1.5"/>';}
-  DATA.forEach(function(r){
-    var pts=""; for(var q=0;q<n;q++){pts+=(q?",":"")+X(q).toFixed(1)+","+Y(r.cum_series[q]).toFixed(1);}
-    s+='<polyline points="'+pts+'" fill="none" stroke="'+r.color+'" stroke-width="2" stroke-linejoin="round"/>';
-  });
-  for(var q2=0;q2<n;q2+=Math.ceil(n/6)){
-    s+='<text x="'+X(q2)+'" y="'+(H-10)+'" text-anchor="middle" font-size="11" fill="#8a97a8">'+DATES[q2]+'</text>';}
-  s+='<g id="xhair" style="display:none">';
-  s+='<line id="xh-v" y1="'+G.padT+'" y2="'+(H-G.padB)+'" stroke="#8a97a8" stroke-dasharray="3,3"/>';
-  DATA.forEach(function(r,ri){ s+='<circle id="xh-d'+ri+'" r="3.5" fill="'+r.color+'"/>'; });
-  s+='<rect id="xh-lb" height="20" rx="3" fill="#1e3a5f"/>';
-  s+='<text id="xh-lt" font-size="11" fill="#fff" text-anchor="middle"></text>';
-  s+='</g>';
-  s+='<rect id="hoverRect" x="'+G.padL+'" y="'+G.padT+'" width="'+(W-G.padL-G.padR)+'" height="'+(H-G.padT-G.padB)+'" fill="transparent"/>';
-  s+='</svg>';
-  box.innerHTML=s;
-
+  var all=[]; DATA.forEach(function(r){ all=all.concat(r.cum_series); });
+  var mn=Math.min(0,Math.min.apply(null,all)), mx=Math.max.apply(null,all);
+  if(mx-mn<1) mx=mn+1;
   var lg=document.getElementById("curveLegend");
   DATA.forEach(function(r){ lg.innerHTML+='<span><i style="background:'+r.color+'"></i>'+r.short+'</span>'; });
 
-  var svg=document.getElementById("curveSvg");
-  var xh=document.getElementById("xhair");
-  function move(ev){
-    var rc=svg.getBoundingClientRect();
-    var mx=(ev.clientX-rc.left)*(W/rc.width);
-    var q=Math.round((mx-G.padL)/((W-G.padL-G.padR)/(n-1)));
-    q=Math.max(0,Math.min(n-1,q));
-    xh.style.display='';
-    var x=X(q);
-    var vl=document.getElementById("xh-v");
-    vl.setAttribute('x1',x); vl.setAttribute('x2',x);
-    DATA.forEach(function(r,ri){
-      var c=document.getElementById('xh-d'+ri);
-      c.setAttribute('cx',x); c.setAttribute('cy',Y(r.cum_series[q]));
+  function draw(){
+    // viewBox 宽度 = 容器像素宽，保证文字在任何屏幕都是真实 11px
+    var W=Math.max(300, Math.round(box.clientWidth||640));
+    var H=W<420?286:340, L=W<420?34:44, R=12, T=14, B=26;
+    function X(q){ return L+(W-L-R)*q/(n-1); }
+    function Y(v){ return T+(H-T-B)*(mx-v)/(mx-mn); }
+    var s='<svg id="curveSvg" viewBox="0 0 '+W+' '+H+'" style="width:100%;height:auto;display:block;touch-action:none">';
+    s+='<rect width="'+W+'" height="'+H+'" fill="#fff"/>';
+    for(var g=0;g<=4;g++){
+      var v=mn+(mx-mn)*g/4, yy=Y(v);
+      s+='<line x1="'+L+'" y1="'+yy+'" x2="'+(W-R)+'" y2="'+yy+'" stroke="#eef1f6"/>';
+      s+='<text x="'+(L-6)+'" y="'+(yy+4)+'" text-anchor="end" font-size="11" fill="#5b6b80">'+Math.round(v)+'</text>';
+    }
+    if(mn<0 && mx>0) s+='<line x1="'+L+'" y1="'+Y(0)+'" x2="'+(W-R)+'" y2="'+Y(0)+'" stroke="#cfd7e3"/>';
+    DATA.forEach(function(r){
+      var pts="";
+      for(var q=0;q<n;q++) pts+=(q?",":"")+X(q).toFixed(1)+","+Y(r.cum_series[q]).toFixed(1);
+      s+='<polyline points="'+pts+'" fill="none" stroke="'+r.color+'" stroke-width="2" '
+        +'stroke-linejoin="round" stroke-linecap="round"/>';
     });
-    var lt=document.getElementById('xh-lt'), lb=document.getElementById('xh-lb');
-    var tx=Math.min(Math.max(x,G.padL+70),W-G.padR-70);
-    lt.setAttribute('x',tx); lt.setAttribute('y',G.padT+14);
-    lt.textContent=DATES[q]+' 累计净申购';
-    lb.setAttribute('x',tx-70); lb.setAttribute('y',G.padT+1);
-    lb.setAttribute('width',140);
-    var sorted=DATA.slice().sort(function(a,b){return b.cum_series[q]-a.cum_series[q];});
-    var rowsHtml=sorted.map(function(r){
-      return '<div style="display:flex;justify-content:space-between;gap:14px">'
-        +'<span><i style="display:inline-block;width:8px;height:8px;border-radius:2px;background:'+r.color+';margin-right:5px"></i>'+r.short+'</span>'
-        +'<b style="font-variant-numeric:tabular-nums">'+signed(r.cum_series[q],1)+' 亿</b></div>';
-    }).join("");
-    tip.innerHTML='<div style="font-weight:700;margin-bottom:4px">'+DATES[q]+'</div>'+rowsHtml;
-    tip.style.display='block';
-    var hb=box.getBoundingClientRect();
-    var px=(ev.clientX-hb.left)+16, py=(ev.clientY-hb.top)+12;
-    if(px+180>hb.width) px=(ev.clientX-hb.left)-190;
-    if(py+170>hb.height) py=Math.max(0,(ev.clientY-hb.top)-170);
-    tip.style.left=px+'px'; tip.style.top=py+'px';
+    var ticks=[0];
+    for(var q2=1;q2<=3;q2++) ticks.push(Math.round((n-1)*q2/4));
+    ticks.push(n-1);
+    ticks.forEach(function(q3){
+      var first=(q3===0), lastQ=(q3===n-1);
+      var tx=first?L:(lastQ?W-R:X(q3));
+      var anc=first?"start":(lastQ?"end":"middle");
+      s+='<text x="'+tx+'" y="'+(H-7)+'" text-anchor="'+anc+'" font-size="11" fill="#5b6b80">'+DATES[q3]+'</text>';
+    });
+    s+='<g id="xhair" style="display:none">';
+    s+='<line id="xh-v" y1="'+T+'" y2="'+(H-B)+'" stroke="#7c8899" stroke-dasharray="3,3"/>';
+    DATA.forEach(function(r,i){ s+='<circle id="xh-d'+i+'" r="3.2" fill="'+r.color+'"/>'; });
+    s+='</g>';
+    s+='<rect id="hoverRect" x="'+L+'" y="'+T+'" width="'+(W-L-R)+'" height="'+(H-T-B)+'" fill="transparent"/>';
+    s+='</svg>';
+    box.innerHTML=s;
+
+    var svg=document.getElementById("curveSvg"), xh=document.getElementById("xhair");
+    var hover=document.getElementById("hoverRect");
+    function move(cx, cy){
+      var rc=svg.getBoundingClientRect();
+      var q=Math.round(((cx-rc.left)*(W/rc.width)-L)/((W-L-R)/(n-1)));
+      q=Math.max(0,Math.min(n-1,q));
+      xh.style.display='';
+      var x=X(q), vl=document.getElementById("xh-v");
+      vl.setAttribute("x1",x); vl.setAttribute("x2",x);
+      DATA.forEach(function(r,i){
+        var c=document.getElementById("xh-d"+i);
+        c.setAttribute("cx",x); c.setAttribute("cy",Y(r.cum_series[q]));
+      });
+      var sorted=DATA.slice().sort(function(a,b){ return b.cum_series[q]-a.cum_series[q]; });
+      tip.innerHTML='<div style="font-weight:700;margin-bottom:3px">'+DATES[q]+'</div>'
+        + sorted.map(function(r){
+          return '<div style="display:flex;justify-content:space-between;gap:12px">'
+            +'<span><i style="display:inline-block;width:7px;height:7px;border-radius:2px;background:'
+            +r.color+';margin-right:4px"></i>'+r.short+'</span>'
+            +'<b style="font-variant-numeric:tabular-nums">'+signed(r.cum_series[q],1)+'</b></div>';
+        }).join("");
+      tip.style.display='block';
+      var tw=tip.offsetWidth||158, th=tip.offsetHeight||120;
+      var px=cx+window.scrollX+14, py=cy+window.scrollY+10;
+      if(cx+14+tw>window.innerWidth-8) px=cx+window.scrollX-tw-14;
+      if(cy+10+th>window.innerHeight-8) py=cy+window.scrollY-th-10;
+      tip.style.left=Math.max(8,px)+'px'; tip.style.top=Math.max(8,py)+'px';
+    }
+    hover.addEventListener("mousemove",function(e){ move(e.clientX,e.clientY); });
+    hover.addEventListener("touchmove",function(e){
+      if(e.touches[0]) move(e.touches[0].clientX,e.touches[0].clientY);
+    },{passive:true});
+    svg.addEventListener("mouseleave",function(){ xh.style.display='none'; tip.style.display='none'; });
   }
-  var hover=document.getElementById("hoverRect");
-  hover.addEventListener('mousemove',move);
-  hover.addEventListener('touchmove',function(ev){ if(ev.touches[0]) move(ev.touches[0]); }, {passive:true});
-  svg.addEventListener('mouseleave',function(){ xh.style.display='none'; tip.style.display='none'; });
+  draw();
+  var rt; window.addEventListener("resize",function(){ clearTimeout(rt); rt=setTimeout(draw,150); });
 })();
 </script>
 </body>
